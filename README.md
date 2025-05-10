@@ -27,9 +27,9 @@ The follwing queries are realted collection of books and database Bookshop
 ![increasebyone](https://github.com/user-attachments/assets/522ca6c4-c8d1-4345-8fb2-f58d01ec3b9f)
 9.delete the collections
 
-![createdatabase](https://github.com/user-attachments/assets/57deace1-b83f-40f1-9af0-28122c2202a7)
-![sortasc2](https://github.com/user-attachments/assets/8569824d-4a43-4859-ae1a-4a580012c7b9)
-![sortasc1](https://github.com/user-attachments/assets/0f453730-db3e-406a-b3bc-d25f28feec30)
-![insert1](https://github.com/user-attachments/assets/09604f93-0b01-41c9-b8af-35cc007aa8f8)
-![increasebyone](https://github.com/user-attachments/assets/62e24018-6e4a-476d-bee1-c8f0016085eb)
-![delete1](https://github.com/user-attachments/assets/2dd6aa55-ce6c-48ad-b2a3-2a59b3983e93)
+![createdatabase](https://github.com/user-attachments/assets/b7b9dbf6-7fc0-45d3-9416-339048fcf73c)
+![sortasc2](https://github.com/user-attachments/assets/47c664ac-e019-4b84-942d-3035b9898456)
+![sortasc1](https://github.com/user-attachments/assets/4e480cf3-be85-44ff-bab5-7d98b85d49a1)
+![insert1](https://github.com/user-attachments/assets/21ba9d92-aff3-4796-9f34-b68e7a58ef19)
+![increasebyone](https://github.com/user-attachments/assets/3374ad4c-7837-4278-afee-83364d24e6c7)
+![delete1](https://github.com/user-attachments/assets/68c1a247-a50c-4d53-8dac-73cffe3891b4)
