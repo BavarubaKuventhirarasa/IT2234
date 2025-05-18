@@ -1,0 +1,138 @@
+Q1).
+db.Students.insertMany([
+{
+  name: "Alice Johnson",
+  enrollmentYear: 2021,
+  major: "Computer Science",
+  email: "alice.johnson@example.com",
+  gender: "Female",
+  age: 20
+},
+{
+  name: "Bob Smith",
+  enrollmentYear: 2020,
+  major: "Mathematics",
+  email: "bob.smith@example.com",
+  gender: "Male",
+  age: 22
+},
+{
+  name: "Clara Lee",
+  enrollmentYear: 2022,
+  major: "Physics",
+  email: "clara.lee@example.com",
+  gender: "Female",
+  age: 19
+},
+{
+  name: "Daniel Kim",
+  enrollmentYear: 2021,
+  major: "Engineering",
+  email: "daniel.kim@example.com",
+  gender: "Male",
+  age: 21
+},
+{
+  name: "Eva Chen",
+  enrollmentYear: 2020,
+  major: "Biology",
+  email: "eva.chen@example.com",
+  gender: "Female",
+  age: 23
+},
+{
+  name: "Frank Wright",
+  enrollmentYear: 2019,
+  major: "Chemistry",
+  email: "frank.wright@example.com",
+  gender: "Male",
+  age: 24
+},
+{
+  name: "Grace Liu",
+  enrollmentYear: 2022,
+  major: "Economics",
+  email: "grace.liu@example.com",
+  gender: "Female",
+  age: 20
+},
+{
+  name: "Henry Davis",
+  enrollmentYear: 2021,
+  major: "Philosophy",
+  email: "henry.davis@example.com",
+  gender: "Male",
+  age: 22
+},
+{
+  name: "Ivy Zhang",
+  enrollmentYear: 2020,
+  major: "Statistics",
+  email: "ivy.zhang@example.com",
+  gender: "Female",
+  age: 21
+},
+{
+  name: "Jack Lee",
+  enrollmentYear: 2023,
+  major: "Business",
+  email: "jack.lee@example.com",
+  gender: "Male",
+  age: 18
+}])
+
+db.Grades.insertMany([{ subject: "Mathematics", score: 85, term: "Fall 2022", studentId: ObjectId("6828c7d46f2f454eaee72c66") },
+{ subject: "English", score: 90, term: "Fall 2022", studentId: ObjectId("6828c7d46f2f454eaee72c66") },
+
+
+{ subject: "Mathematics", score: 75, term: "Spring 2022", studentId:  ObjectId("6828c7d46f2f454eaee72c67") },
+{ subject: "Statistics", score: 80, term: "Fall 2022", studentId:  ObjectId("6828c7d46f2f454eaee72c67") },
+
+
+{ subject: "Physics", score: 92, term: "Fall 2022", studentId:ObjectId("6828c7d46f2f454eaee72c68") },
+{ subject: "Mathematics", score: 86, term: "Spring 2023", studentId: ObjectId("6828c7d46f2f454eaee72c68") },
+
+
+{ subject: "Engineering", score: 89, term: "Fall 2021", studentId:ObjectId("6828c7d46f2f454eaee72c69") },
+{ subject: "Mathematics", score: 84, term: "Spring 2022", studentId:ObjectId("6828c7d46f2f454eaee72c69") },
+
+
+{ subject: "Biology", score: 78, term: "Spring 2021", studentId: ObjectId("6828c7d46f2f454eaee72c6a") },
+{ subject: "Chemistry", score: 82, term: "Fall 2021", studentId: ObjectId("6828c7d46f2f454eaee72c6a") },
+
+
+{ subject: "Chemistry", score: 88, term: "Fall 2021", studentId:ObjectId("6828c7d46f2f454eaee72c6b") },
+{ subject: "Physics", score: 79, term: "Spring 2022", studentId:ObjectId("6828c7d46f2f454eaee72c6b") },
+
+
+{ subject: "Economics", score: 83, term: "Spring 2023", studentId: ObjectId("6828c7d46f2f454eaee72c6c") },
+{ subject: "English", score: 89, term: "Fall 2022", studentId: ObjectId("6828c7d46f2f454eaee72c6c") },
+
+
+{ subject: "Philosophy", score: 91, term: "Fall 2022", studentId:ObjectId("6828c7d46f2f454eaee72c6d") },
+{ subject: "History", score: 77, term: "Spring 2023", studentId:ObjectId("6828c7d46f2f454eaee72c6d") },
+
+
+{ subject: "Statistics", score: 79, term: "Spring 2022", studentId:ObjectId("6828c7d46f2f454eaee72c6e") },
+{ subject: "Data Science", score: 88, term: "Fall 2022", studentId:ObjectId("6828c7d46f2f454eaee72c6e") },
+
+{ subject: "Business", score: 87, term: "Fall 2023", studentId: ObjectId("6828c7d46f2f454eaee72c6f") },
+{ subject: "Finance", score: 82, term: "Spring 2024", studentId: ObjectId("6828c7d46f2f454eaee72c6f") }])
+
+Q3).db.Students.find({"gender":"Female"}).projection({"name":1,"age":1,"gender":1,"_id":0})
+
+Q4).db.Students.find({"age":{$lt:22},"enrollmentYear":{$gt:2020}})
+
+Q5).db.Grades.aggregate([{
+$lookup:{from:"Students",
+localField:"studentId",
+foreignField:"_id",
+as:"student"}
+},
+{$match:{"student.name":"Alice Johnson"}}
+])
+
+Q6).db.Grades.distinct("studentId",{"subject":"Mathematics"}).length
+
+Q7).const ids=db.Grades.distinct("studentId",{"term":"Fall 2022"}),
+db.Students.find({"_id":{$in:ids}})
